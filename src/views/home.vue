@@ -10,6 +10,8 @@
 
 <script setup lang="ts">
 import logo from '@/assets/img/logo.png'
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 </script>
 
 <style lang="less" scoped>
@@ -22,7 +24,5 @@ import logo from '@/assets/img/logo.png'
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--c-text);
-  padding: calc(var(--w-space) * 3) 0;
-  margin: 0 auto;
 }
 </style>

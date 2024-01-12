@@ -3,5 +3,14 @@
   "references": [
     { "path": "./tsconfig.node.json" },
     { "path": "./tsconfig.web.json" }
+  ],
+  //语法检测,否则在引入组件以及其他文件时会有波浪线提示
+  "include":[
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsc",
+    "src/**/*.vue",
+    "vite.config.ts",
+    "vite/**/*.ts",
   ]
 }
