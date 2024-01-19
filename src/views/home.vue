@@ -1,15 +1,12 @@
 <template>
   <div class="home">
     <Header />
-    <img alt="Vue logo" :src="logo" />
-    <ToggleTheme />
-    <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+
     <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
-import logo from '@/assets/img/logo.png'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 </script>
