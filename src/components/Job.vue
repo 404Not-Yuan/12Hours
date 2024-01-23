@@ -2,8 +2,12 @@
   <div class="jobContent">
     <div class="jobTitle">
       <div class="options">
-        <span :class="{ active: nowIndex === 0 }" @click="changeTab(0)"><img src="../assets/img/hot.png" alt="" />热门职位</span>
-        <span :class="{ active: nowIndex === 1 }" @click="changeTab(1)">最新职位</span>
+        <span :class="{ active: nowIndex === 0 }" @click="changeTab(0)"
+          ><img src="../assets/img/hot.png" alt="" />热门职位</span
+        >
+        <span :class="{ active: nowIndex === 1 }" @click="changeTab(1)"
+          >最新职位</span
+        >
       </div>
       <div class="more">
         查看更多<img src="../assets/img/arrow.png" alt="" />
@@ -159,7 +163,7 @@ export default defineComponent({
 
 <style lang="less" scoped>
 .jobContent {
-  width: 70%;
+  width: 75%;
 }
 .jobTitle {
   display: flex;
@@ -220,7 +224,7 @@ ul {
 }
 .item {
   margin-right: 14px;
-  width: 345px;
+  width: 370px;
   background: #fff;
   margin-bottom: 20px;
 }
