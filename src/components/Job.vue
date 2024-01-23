@@ -15,7 +15,7 @@
     </div>
     <div v-show="nowIndex === 0" class="joblists">
       <ul>
-        <li class="item">
+        <li class="item" @click="jobdetail()">
           <div class="item-top">
             <span class="jobName ellipsis">食堂窗口兼职</span>
             <span class="jobSalary">12元/小时</span>
@@ -28,7 +28,7 @@
           </div>
           <div class="item-bottom">详情</div>
         </li>
-        <li class="item">
+        <li class="item" @click="jobdetail()">
           <div class="item-top">
             <span class="jobName ellipsis">食堂窗口兼职</span>
             <span class="jobSalary">12元/小时</span>
@@ -41,7 +41,7 @@
           </div>
           <div class="item-bottom">详情</div>
         </li>
-        <li class="item">
+        <li class="item" @click="jobdetail()">
           <div class="item-top">
             <span class="jobName ellipsis">食堂窗口兼职</span>
             <span class="jobSalary">12元/小时</span>
@@ -54,7 +54,7 @@
           </div>
           <div class="item-bottom">详情</div>
         </li>
-        <li class="item">
+        <li class="item" @click="jobdetail()">
           <div class="item-top">
             <span class="jobName ellipsis">食堂窗口兼职</span>
             <span class="jobSalary">12元/小时</span>
@@ -67,7 +67,7 @@
           </div>
           <div class="item-bottom">详情</div>
         </li>
-        <li class="item">
+        <li class="item" @click="jobdetail()">
           <div class="item-top">
             <span class="jobName ellipsis">食堂窗口兼职</span>
             <span class="jobSalary">12元/小时</span>
@@ -80,7 +80,7 @@
           </div>
           <div class="item-bottom">详情</div>
         </li>
-        <li class="item">
+        <li class="item" @click="jobdetail()">
           <div class="item-top">
             <span class="jobName ellipsis">食堂窗口兼职</span>
             <span class="jobSalary">12元/小时</span>
@@ -93,7 +93,7 @@
           </div>
           <div class="item-bottom">详情</div>
         </li>
-        <li class="item">
+        <li class="item" @click="jobdetail()">
           <div class="item-top">
             <span class="jobName ellipsis">食堂窗口兼职</span>
             <span class="jobSalary">12元/小时</span>
@@ -106,7 +106,7 @@
           </div>
           <div class="item-bottom">详情</div>
         </li>
-        <li class="item">
+        <li class="item" @click="jobdetail()">
           <div class="item-top">
             <span class="jobName ellipsis">食堂窗口兼职</span>
             <span class="jobSalary">12元/小时</span>
@@ -119,7 +119,7 @@
           </div>
           <div class="item-bottom">详情</div>
         </li>
-        <li class="item">
+        <li class="item" @click="jobdetail()">
           <div class="item-top">
             <span class="jobName ellipsis">食堂窗口兼职</span>
             <span class="jobSalary">12元/小时</span>
@@ -144,18 +144,30 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
+//引入路由API
+import { useRouter } from 'vue-router'
+
 export default defineComponent({
   setup() {
     //区别热门职位还是最新职位
     //创建响应式API，使变量具备响应式
     const nowIndex = ref<number>(0)
+    //获取路由信息
+    const router = useRouter()
     function changeTab(index) {
       nowIndex.value = index
+    }
+    //跳转到职位详情页，携带参数
+    function jobdetail() {
+      router.push({
+        name: 'jobdetail',
+      })
     }
     //将需要在模板里面使用的变量return出去
     return {
       nowIndex,
       changeTab,
+      jobdetail,
     }
   },
 })
@@ -227,6 +239,7 @@ ul {
   width: 370px;
   background: #fff;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 .item:hover {
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.12);

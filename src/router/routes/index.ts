@@ -50,6 +50,11 @@ const routes: RouteRecordRaw[] = [
     name: 'register',
     component: () => import('@/views/register.vue'),
   },
+  {
+    path: '/jobdetail',
+    name: 'jobdetail',
+    component: () => import('@/views/jobdetail.vue'),
+  },
 ]
 
 export default routes
