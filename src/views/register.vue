@@ -35,6 +35,10 @@
             <img src="@/assets/img/password.png" class="icon_phone" />
             <input name="code" type="text" placeholder="请输入密码" />
           </div>
+          <div data-prop="code" class="form-item">
+            <img src="@/assets/img/password.png" class="icon_phone" />
+            <input name="code" type="text" placeholder="请确认密码" />
+          </div>
           <div class="form-item pl50">
             <img
               :src="
@@ -48,7 +52,6 @@
             已阅读并同意<i>《用户服务协议》</i>
           </div>
           <button type="submit" class="submit">注册</button>
-
         </div>
       </div>
       <div v-show="customer == 2" class="tab-content">
@@ -66,6 +69,10 @@
             <img src="@/assets/img/password.png" class="icon_phone" />
             <input name="code" type="text" placeholder="请输入密码" />
           </div>
+          <div data-prop="code" class="form-item">
+            <img src="@/assets/img/password.png" class="icon_phone" />
+            <input name="code" type="text" placeholder="请确认密码" />
+          </div>
           <div class="form-item pl50">
             <img
               :src="
@@ -79,7 +86,6 @@
             已阅读并同意<i>《用户服务协议》</i>
           </div>
           <button type="submit" class="submit">注册</button>
-
         </div>
       </div>
       <div v-show="customer == 3" class="tab-content">
@@ -97,6 +103,10 @@
             <img src="@/assets/img/password.png" class="icon_phone" />
             <input name="code" type="text" placeholder="请输入密码" />
           </div>
+          <div data-prop="code" class="form-item">
+            <img src="@/assets/img/password.png" class="icon_phone" />
+            <input name="code" type="text" placeholder="请确认密码" />
+          </div>
           <div class="form-item pl50">
             <img
               :src="
@@ -110,7 +120,6 @@
             已阅读并同意<i>《用户服务协议》</i>
           </div>
           <button type="submit" class="submit">注册</button>
-
         </div>
       </div>
     </div>
@@ -156,7 +165,7 @@ export default defineComponent({
 }
 .tabs {
   width: 35%;
-  height: 450px;
+  height: 530px;
   border: 1px solid #fff;
   border-radius: 23px;
   display: flex;
