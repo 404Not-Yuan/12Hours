@@ -39,6 +39,11 @@ export default defineConfig(({ mode }) => {
       //     rewrite: (path) => path.replace(/^\/devapi/, ''),
       //   },
       // },
+      overlay: {
+        warnings: false,
+        errors: false
+      },
+      lintOnSave: false
     },
 
     build: {
