@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 13</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#ACC3F1" offset="0%"></stop>
+            <stop stop-color="#307CF2" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-2" cx="18" cy="18" r="18"></circle>
+        <filter x="-19.4%" y="-13.9%" width="138.9%" height="138.9%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.207843137   0 0 0 0 0.498039216   0 0 0 0 0.949019608  0 0 0 0.378277972 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="5、个人中心" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="个人中心" transform="translate(-586.000000, -523.000000)">
+            <g id="编组-13" transform="translate(590.000000, 525.000000)">
+                <g id="椭圆形备份-13">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                    <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+                </g>
+                <g id="编组" transform="translate(10.000000, 8.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <path d="M15.0422454,-5.904849e-16 L1.95775463,-5.904849e-16 C0.875578704,-5.904849e-16 0,0.893125941 0,1.99698946 L0,18.0030105 C0,19.1068741 0.875578704,20 1.95775463,20 L15.0422454,20 C16.1244213,20 17,19.1068741 17,18.0030105 L17,1.99698946 C17,0.893125941 16.1244213,-5.904849e-16 15.0422454,-5.904849e-16 Z M2.94155093,3.83341696 C2.94155093,3.55243352 3.15798611,3.33166081 3.43344907,3.33166081 L11.6087963,3.33166081 C11.8842593,3.33166081 12.1006944,3.55243352 12.1006944,3.83341696 L12.1006944,4.16457602 C12.1006944,4.44555946 11.8842593,4.66633216 11.6087963,4.66633216 L3.43344907,4.66633216 C3.15798611,4.66633216 2.94155093,4.44555946 2.94155093,4.16457602 L2.94155093,3.83341696 Z M2.94155093,7.50627195 L2.94155093,7.1751129 C2.94155093,6.89412945 3.15798611,6.67335675 3.43344907,6.67335675 L8.99189815,6.67335675 C9.26736111,6.67335675 9.4837963,6.89412945 9.4837963,7.1751129 L9.4837963,7.50627195 C9.4837963,7.78725539 9.26736111,8.0080281 8.99189815,8.0080281 L3.43344907,8.0080281 C3.15798611,7.99799298 2.94155093,7.77722027 2.94155093,7.50627195 Z M10.1331019,16.4274962 L9.27719907,17.3306573 L8.4212963,16.4274962 L5.87326389,13.7079779 L6.72916667,12.8048169 L9.27719907,15.5243352 L13.5271991,10.9984947 L14.3831019,11.9016558 L10.1331019,16.4274962 L10.1331019,16.4274962 Z" id="形状"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

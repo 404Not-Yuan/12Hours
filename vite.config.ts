@@ -7,7 +7,7 @@ import banner from 'vite-plugin-banner'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { envDir, sourceDir, manualChunks } from './scripts/build'
 import pkg from './package.json'
-
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, envDir)
@@ -94,6 +94,11 @@ export default defineConfig(({ mode }) => {
     },
 
     css: {
+      loaderOptions: {
+        sass: {
+          additionalData: '@use "@/styles/element.scss" as *'
+        }
+      }
       /**
        * 包括 `vw` / `rem` 单位转换等
        *
@@ -124,6 +129,7 @@ export default defineConfig(({ mode }) => {
       //     // }),
       //   ],
       // },
+
     },
 
     plugins: [
@@ -161,6 +167,11 @@ export default defineConfig(({ mode }) => {
        * @see https://github.com/antfu/unplugin-auto-import#configuration
        */
       autoImport({
+        resolvers:[
+          ElementPlusResolver({
+            importStyle:'sass'
+          })
+        ],
         imports: ['vue', 'vue-router', 'pinia'],
         dts: 'src/types/declaration-files/auto-import.d.ts',
         eslintrc: {
@@ -176,6 +187,12 @@ export default defineConfig(({ mode }) => {
        * @see https://github.com/antfu/unplugin-vue-components#configuration
        */
       components({
+        resolvers: [
+          ElementPlusResolver({
+            // 自动引入修改主题色添加这一行，使用预处理样式
+            importStyle: "sass",
+          }),
+        ],
         dirs: ['src/components'],
         directoryAsNamespace: true,
         collapseSamePrefixes: true,

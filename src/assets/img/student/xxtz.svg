@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 15</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F6DAA1" offset="0%"></stop>
+            <stop stop-color="#F4AE25" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-2" cx="18" cy="18" r="18"></circle>
+        <filter x="-19.4%" y="-13.9%" width="138.9%" height="138.9%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.937254902   0 0 0 0 0.670588235   0 0 0 0 0.0705882353  0 0 0 0.381528628 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="5、个人中心" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="个人中心" transform="translate(-391.000000, -629.000000)">
+            <g id="编组-15" transform="translate(395.000000, 631.000000)">
+                <g id="椭圆形备份-14">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                    <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+                </g>
+                <g id="编组" transform="translate(9.000000, 9.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <path d="M9,1.33821525e-16 C4.05,1.33821525e-16 1.33821525e-16,4.05 1.33821525e-16,9 L1.33821525e-16,17.5178571 C1.33821525e-16,17.775 0.225000006,18 0.482142857,18 L9,18 C13.95,18 18,13.95 18,9 C18,4.05 13.95,1.33821525e-16 9,1.33821525e-16 Z M11.1214286,13.8857143 L6.87857143,13.8857143 C6.52500001,13.8857143 6.23571429,13.5964286 6.23571429,13.2428571 C6.23571429,12.8892857 6.52500001,12.6 6.87857143,12.6 L11.1535714,12.6 C11.5071429,12.6 11.7964286,12.8892857 11.7964286,13.2428571 C11.7964286,13.5964286 11.475,13.8857143 11.1214286,13.8857143 Z M12.825,10.5107143 L5.17500001,10.5107143 C4.82142859,10.5107143 4.53214285,10.2214286 4.53214285,9.86785714 C4.53214285,9.51428572 4.82142857,9.22500001 5.17500001,9.22500001 L12.825,9.22500001 C13.1785714,9.22500001 13.4678571,9.51428572 13.4678571,9.86785714 C13.4678571,10.2214286 13.1785714,10.5107143 12.825,10.5107143 Z M12.825,7.07142857 L5.17500001,7.07142857 C4.82142859,7.07142857 4.53214285,6.78214286 4.53214285,6.42857144 C4.53214285,6.07500001 4.82142857,5.78571428 5.17500001,5.78571428 L12.825,5.78571428 C13.1785714,5.78571428 13.4678571,6.075 13.4678571,6.42857144 C13.4678571,6.78214288 13.1785714,7.07142857 12.825,7.07142857 Z" id="形状"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

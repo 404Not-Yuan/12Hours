@@ -19,27 +19,27 @@ const routes: RouteRecordRaw[] = [
   /**
    * 子路由示例
    */
-  {
-    path: '/foo',
-    name: 'foo',
-    component: () => import('@/components/TransferStation.vue'),
-    meta: {
-      title: 'Foo',
-    },
-    redirect: {
-      name: 'bar',
-    },
-    children: [
-      {
-        path: 'bar',
-        name: 'bar',
-        component: () => import('@/views/foo/bar.vue'),
-        meta: {
-          title: 'Bar',
-        },
-      },
-    ],
-  },
+  // {
+  //   path: '/foo',
+  //   name: 'foo',
+  //   component: () => import('@/components/TransferStation.vue'),
+  //   meta: {
+  //     title: 'Foo',
+  //   },
+  //   redirect: {
+  //     name: 'bar',
+  //   },
+  //   children: [
+  //     {
+  //       path: 'bar',
+  //       name: 'bar',
+  //       component: () => import('@/views/foo/bar.vue'),
+  //       meta: {
+  //         title: 'Bar',
+  //       },
+  //     },
+  //   ],
+  // },
   {
     path: '/login',
     name: 'login',
@@ -54,6 +54,26 @@ const routes: RouteRecordRaw[] = [
     path: '/jobdetail',
     name: 'jobdetail',
     component: () => import('@/views/jobdetail.vue'),
+  },
+  {
+    path: '/student/personal',
+    name: 'personal',
+    component: () => import('@/views/student/personal.vue'),
+  },
+  {
+    path: '/student/record',
+    name: 'record',
+    component: () => import('@/views/student/record.vue'),
+  },
+  {
+    path: '/student/collection',
+    name: 'collection',
+    component: () => import('@/views/student/collection.vue'),
+  },
+  {
+    path: '/student/inform',
+    name: 'inform',
+    component: () => import('@/views/student/inform.vue'),
   },
 ]
 

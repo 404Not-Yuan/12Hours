@@ -120,7 +120,7 @@ export default defineComponent({
     let isChecked = ref(false)
     function check() {
       isChecked.value = !isChecked.value
-      console.log(isChecked)
+      
     }
     //用户登录切换
     const customer = ref<number>(1)

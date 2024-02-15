@@ -4,7 +4,10 @@
     <div class="titleList">
       <div class="title">首页</div>
       <div class="title">首页</div>
-      <div class="title">首页</div>
+      <router-link to="/student/personal">
+        <div class="title">个人中心</div>
+      </router-link>
+
     </div>
     <router-link to="/login">
       <div class="right">

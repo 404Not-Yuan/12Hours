@@ -2,13 +2,14 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import App from '@/App.vue'
 import router from '@/router'
-
+import ElementPlus from 'element-plus'
 // 全局样式
 import 'virtual:uno.css'
 import '@/styles/var.less'
 import '@/styles/mixin.less'
 import '@/styles/global.less'
-import 'normalize.css'; 
+import 'normalize.css';
+// import './styles/element.scss';
 // 创建 Pinia 实例
 const pinia = createPinia()
 
@@ -26,4 +27,5 @@ const pinia = createPinia()
 createApp(App)
   .use(pinia) // 启用 Pinia
   .use(router)
+  .use(ElementPlus)
   .mount('#app')
