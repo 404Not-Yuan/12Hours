@@ -224,7 +224,6 @@ button {
 button:hover {
   opacity: 0.8;
 }
-
 .form-item {
   display: flex;
   justify-content: space-around;
@@ -272,17 +271,16 @@ button:hover {
   text-align: center;
   text-decoration: none;
 }
-
-.register {
-  display: flex;
-  justify-content: flex-end;
-  margin: 10px;
-  color: #ff4d4f;
-}
-.register a {
-  text-decoration: none;
-  color: #ff4d4f;
-}
+// .register {
+//   display: flex;
+//   justify-content: flex-end;
+//   margin: 10px;
+//   color: #ff4d4f;
+// }
+// .register a {
+//   text-decoration: none;
+//   color: #ff4d4f;
+// }
 .submit {
   background-color: #ff4d4f;
   color: #fff;

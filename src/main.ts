@@ -3,6 +3,8 @@ import { createPinia } from 'pinia'
 import App from '@/App.vue'
 import router from '@/router'
 import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+
 // 全局样式
 import 'virtual:uno.css'
 import '@/styles/var.less'
@@ -29,3 +31,4 @@ createApp(App)
   .use(router)
   .use(ElementPlus)
   .mount('#app')
+

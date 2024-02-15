@@ -8,6 +8,7 @@ import { createHtmlPlugin } from 'vite-plugin-html'
 import { envDir, sourceDir, manualChunks } from './scripts/build'
 import pkg from './package.json'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, envDir)
@@ -179,6 +180,7 @@ export default defineConfig(({ mode }) => {
           filepath: './.eslintrc-auto-import.json',
           globalsPropValue: true,
         },
+        resolvers: [ElementPlusResolver()],
       }),
 
       /**
@@ -200,6 +202,7 @@ export default defineConfig(({ mode }) => {
         extensions: ['vue', 'ts', 'tsx'],
         deep: true,
         dts: 'src/types/declaration-files/components.d.ts',
+        resolvers: [ElementPlusResolver()],
       }),
 
       /**

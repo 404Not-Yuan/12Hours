@@ -209,7 +209,6 @@ button {
 button:hover {
   opacity: 0.8;
 }
-
 .form-item {
   display: flex;
   justify-content: space-around;
@@ -257,7 +256,6 @@ button:hover {
   text-align: center;
   text-decoration: none;
 }
-
 .register {
   display: flex;
   justify-content: flex-end;
