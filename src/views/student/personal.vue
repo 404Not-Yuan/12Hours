@@ -37,7 +37,9 @@
           <div>消息通知</div>
         </div>
         <div class="item">
-          <img src="@/assets/img/student/sz.svg" alt="" />
+          <img src="@/assets/img/student/sz.svg" alt=""  @click="$router.push({
+            name:'setting'
+          })"/>
           <div>账号设置</div>
         </div>
       </div>

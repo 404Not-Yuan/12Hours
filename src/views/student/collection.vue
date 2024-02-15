@@ -28,9 +28,11 @@
       </div>
     </div>
   </div>
+  <Footer />
 </template>
 <script lang="ts">
 import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 import { useRouter } from 'vue-router'
 export default defineComponent({
   setup() {

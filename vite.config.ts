@@ -180,7 +180,7 @@ export default defineConfig(({ mode }) => {
           filepath: './.eslintrc-auto-import.json',
           globalsPropValue: true,
         },
-        resolvers: [ElementPlusResolver()],
+
       }),
 
       /**
@@ -202,7 +202,7 @@ export default defineConfig(({ mode }) => {
         extensions: ['vue', 'ts', 'tsx'],
         deep: true,
         dts: 'src/types/declaration-files/components.d.ts',
-        resolvers: [ElementPlusResolver()],
+       
       }),
 
       /**

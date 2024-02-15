@@ -75,6 +75,11 @@ const routes: RouteRecordRaw[] = [
     name: 'inform',
     component: () => import('@/views/student/inform.vue'),
   },
+  {
+    path: '/student/setting',
+    name: 'setting',
+    component: () => import('@/views/student/setting.vue'),
+  },
 ]
 
 export default routes
