@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div class="bg">
     <div class="tabs">
       <div class="tab-header">
@@ -45,48 +44,11 @@
             已阅读并同意<i>《用户服务协议》</i>
           </div>
           <button type="submit" class="submit"><b>登录</b></button>
-=======
-  <body>
-    <div class="tabs">
-      <div class="tab-header">
-        <button class="tab-btn active" onclick="showTab(1)">
-          <b>学生用户</b>
-        </button>
-        <button class="tab-btn" onclick="showTab(2)">
-          <b>企业用户</b>
-        </button>
-        <button class="tab-btn" onclick="showTab(3)">
-          <b>后台管理</b>
-        </button>
-      </div>
-      <div id="tab1" class="tab-content active">
-        <div class="tab-pane">
-          <div data-prop="phone" class="form-item">
-            <span class="icon"></span>
-            <input name="phone" type="text" placeholder="输入手机号码  " />
-          </div>
-
-          <div data-prop="code" class="form-item">
-            <span class="icon"></span>
-            <input name="code" type="text" placeholder="短信验证码" />
-            <a class="code" href="javascript:;">发送验证码</a>
-          </div>
-          <div class="form-item pl50">
-            <div class="tubiao">
-              <i class="iconfont icon-queren" />
-            </div>
-            已阅读并同意<i>《用户服务协议》</i>
-          </div>
-          <button type="submit" class="submit">
-            <b>登录</b>
-          </button>
->>>>>>> a4bcec0af2daa50520107041dd9a7db680e6722b
           <div class="register">
             还没有账号？<a href="#"><i>去注册</i></a>
           </div>
         </div>
       </div>
-<<<<<<< HEAD
       <div v-show="customer == 2" class="tab-content">
         <div class="tab-pane">
           <div data-prop="phone" class="form-item">
@@ -111,35 +73,11 @@
             已阅读并同意<i>《用户服务协议》</i>
           </div>
           <button type="submit" class="submit"><b>登录</b></button>
-=======
-      <div id="tab2" class="tab-content">
-        <div class="tab-pane">
-          <div data-prop="phone" class="form-item">
-            <span class="icon"></span>
-            <input name="phone" type="text" placeholder="输入手机号码  " />
-          </div>
-
-          <div data-prop="code" class="form-item">
-            <span class="icon"></span>
-            <input name="code" type="text" placeholder="短信验证码" />
-            <a class="code" href="javascript:;">发送验证码</a>
-          </div>
-          <div class="form-item pl50">
-            <div class="tubiao">
-              <i class="iconfont icon-queren" />
-            </div>
-            已阅读并同意<i>《用户服务协议》</i>
-          </div>
-          <button type="submit" class="submit">
-            <b>登录</b>
-          </button>
->>>>>>> a4bcec0af2daa50520107041dd9a7db680e6722b
           <div class="register">
             还没有账号？<a href="#"><i>去注册</i></a>
           </div>
         </div>
       </div>
-<<<<<<< HEAD
       <div v-show="customer == 3" class="tab-content">
         <div class="tab-pane">
           <div data-prop="phone" class="form-item">
@@ -164,36 +102,12 @@
             已阅读并同意<i>《用户服务协议》</i>
           </div>
           <button type="submit" class="submit"><b>登录</b></button>
-=======
-      <div id="tab3" class="tab-content">
-        <div class="tab-pane">
-          <div data-prop="phone" class="form-item">
-            <span class="icon"></span>
-            <input name="phone" type="text" placeholder="输入手机号码  " />
-          </div>
-
-          <div data-prop="code" class="form-item">
-            <span class="icon"></span>
-            <input name="code" type="text" placeholder="短信验证码" />
-            <a class="code" href="javascript:;">发送验证码</a>
-          </div>
-          <div class="form-item pl50">
-            <div class="tubiao">
-              <i class="iconfont icon-queren" />
-            </div>
-            已阅读并同意<i>《用户服务协议》</i>
-          </div>
-          <button type="submit" class="submit">
-            <b>登录</b>
-          </button>
->>>>>>> a4bcec0af2daa50520107041dd9a7db680e6722b
           <div class="register">
             还没有账号？<a href="#"><i>去注册</i></a>
           </div>
         </div>
       </div>
     </div>
-<<<<<<< HEAD
   </div>
 </template>
 
@@ -220,56 +134,10 @@ export default defineComponent({
       showTab,
     }
   },
-=======
-  </body>
-</template>
-
-<script setup lang="ts">
-// tab切换效果
-/*
-    function showTab(tabIndex: number) {
-        const tabBtns = document.getElementsByClassName('tab-btn');
-        const tabContents = document.getElementsByClassName('tab-content');
-        for (let i = 0; i < tabBtns.length; i++) {
-            tabBtns[i].classList.remove('active');
-            tabContents[i].classList.remove('active');
-        }
-        tabBtns[tabIndex - 1].classList.add('active');
-        tabContents[tabIndex - 1].classList.add('active');
-    }
-    */
-
-// 获取验证码
-;(function () {
-  const code = document.querySelector('.code')
-  let flag = true
-  code.addEventListener('click', function () {
-    if (flag) {
-      flag = false
-      let i = 60
-      code.innerHTML = `${i}秒后重新获取`
-      const timerId = setInterval(function () {
-        i--
-        code.innerHTML = `${i}秒后重新获取`
-        if (i === 0) {
-          clearInterval(timerId)
-          code.innerHTML = `重新获取`
-          flag = true
-        }
-      }, 1000)
-    }
-  })
-})()
-// 阅读同意点击事件
-const queren = document.querySelector('.icon-queren')
-queren.addEventListener('click', function () {
-  this.classList.toggle('icon-queren2')
->>>>>>> a4bcec0af2daa50520107041dd9a7db680e6722b
 })
 </script>
 
 <style lang="less" scoped>
-<<<<<<< HEAD
 .bg {
   width: 100vw;
   height: 100vh;
@@ -279,40 +147,24 @@ queren.addEventListener('click', function () {
   display: flex;
   justify-content: center;
   align-items: center;
-=======
-@import url('https://at.alicdn.com/t/font_2143783_iq6z4ey5vu.css');
-body {
-  background-image: url(../assets/img/bg1.png);
-  background-size: cover;
-  background-repeat: no-repeat;
->>>>>>> a4bcec0af2daa50520107041dd9a7db680e6722b
 }
 .tabs {
   width: 35%;
   height: 420px;
-<<<<<<< HEAD
-=======
-  margin: 100px auto;
->>>>>>> a4bcec0af2daa50520107041dd9a7db680e6722b
   border: 1px solid #fff;
   border-radius: 23px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   background-color: #fff;
-<<<<<<< HEAD
   padding: 20px 30px;
 }
 
-=======
-}
->>>>>>> a4bcec0af2daa50520107041dd9a7db680e6722b
 .tab-header {
   display: flex;
   justify-content: space-around;
   height: 60px;
 }
-<<<<<<< HEAD
 
 .tab-btn {
   min-width: 25%;
@@ -344,32 +196,6 @@ body {
   margin: 10px auto;
 }
 
-=======
-.tab-btn {
-  width: 24%;
-  height: 100%;
-  border: none;
-  cursor: pointer;
-  color: #ff4d4f;
-}
-.tab-btn.active {
-  border-bottom: 5px solid #ff4d4f;
-}
-.tab-content {
-  display: none;
-  padding: 10px;
-  margin-top: 20px;
-}
-.tab-content.active {
-  display: block;
-}
-.tab-pane {
-  display: flex;
-  flex-direction: column;
-  width: 85%;
-  margin: 10px auto;
-}
->>>>>>> a4bcec0af2daa50520107041dd9a7db680e6722b
 button {
   padding: 14px 20px;
   margin: 8px 0;
@@ -383,10 +209,6 @@ button {
 button:hover {
   opacity: 0.8;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> a4bcec0af2daa50520107041dd9a7db680e6722b
 .form-item {
   display: flex;
   justify-content: space-around;
@@ -394,7 +216,6 @@ button:hover {
   color: #ff4d4f;
   align-items: center;
 }
-<<<<<<< HEAD
 .icon_phone {
   width: 20px;
   height: 20px;
@@ -411,17 +232,11 @@ button:hover {
   color: #ff4d4f;
   font-size: 14px;
 }
-=======
->>>>>>> a4bcec0af2daa50520107041dd9a7db680e6722b
 .form-item input {
   width: 100%;
   height: 50px;
   padding-left: 15px;
   background-color: transparent;
-<<<<<<< HEAD
-=======
-  color: #ff4d4f;
->>>>>>> a4bcec0af2daa50520107041dd9a7db680e6722b
 }
 .form-item input[type='text'] {
   border: none;
@@ -429,12 +244,9 @@ button:hover {
 .form-item input[type='text']::placeholder {
   color: #ff4d4f;
 }
-<<<<<<< HEAD
 .form-item.error input {
   border-color: #ff4d4f;
 }
-=======
->>>>>>> a4bcec0af2daa50520107041dd9a7db680e6722b
 .form-item .code {
   display: flex;
   flex-direction: column;
@@ -444,24 +256,6 @@ button:hover {
   text-align: center;
   text-decoration: none;
 }
-<<<<<<< HEAD
-
-=======
-.form-item.pl50 {
-  display: flex;
-  justify-content: center;
-  padding-left: 40px;
-  cursor: pointer;
-  color: #ff4d4f;
-}
-.tubiao {
-  margin-right: 5px;
-}
-.form-item i {
-  color: #ff4d4f;
-  font-size: 14px;
-}
->>>>>>> a4bcec0af2daa50520107041dd9a7db680e6722b
 .register {
   display: flex;
   justify-content: flex-end;
@@ -476,24 +270,7 @@ button:hover {
   background-color: #ff4d4f;
   color: #fff;
 }
-<<<<<<< HEAD
 input[type='text']:focus {
   outline: none;
-=======
-@font-face {
-  font-family: 'icomoon';
-  src: url('fonts/icomoon.eot?kz1s1y');
-  src:
-    url('fonts/icomoon.eot?kz1s1y#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?kz1s1y') format('truetype'),
-    url('fonts/icomoon.woff?kz1s1y') format('woff'),
-    url('fonts/icomoon.svg?kz1s1y#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
-}
-.icon {
-  font-family: 'icomoon';
->>>>>>> a4bcec0af2daa50520107041dd9a7db680e6722b
 }
 </style>

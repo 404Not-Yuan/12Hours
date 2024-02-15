@@ -2,7 +2,7 @@
   <div class="home">
     <Header />
 
-    <!-- 首页内容 -->
+  <!-- 首页内容 -->
     <div class="screening-box">
       <!-- 搜索栏 -->
       <div class="search-box">
@@ -17,16 +17,18 @@
         <!-- 第一栏，关于“城市” -->
         <div class="row-box">
           <div class="row-title">城市</div>
-          <ul>
-            <li
-              v-for="(country, index) in Countrys"
-              :key="index"
-              :class="{ activeColor: country.active }"
-              @click="changeColor(country)"
-            >
-              <span>{{ country.name }}</span>
-            </li>
-          </ul>
+          <div class="row-items">
+            <ul>
+              <li
+                v-for="(country, index) in Countrys"
+                :key="index"
+                :class="{ activeColor: country.active }"
+                @click="changeColor(Countrys,country)"
+              >
+                <span>{{ country.name }}</span>
+              </li>
+            </ul>
+          </div>
         </div>
         <!-- 第二栏，关于“薪资” -->
         <div class="row-box">
@@ -36,7 +38,7 @@
               v-for="(salary, index) in Salaries"
               :key="index"
               :class="{ activeColor: salary.active }"
-              @click="changeColor(salary)"
+              @click="changeColor(Salaries,salary)"
             >
               <span>{{ salary.name }}</span>
             </li>
@@ -50,150 +52,94 @@
               v-for="(exper, index) in Job_type"
               :key="index"
               :class="{ activeColor: exper.active }"
-              @click="changeColor(exper)"
+              @click="changeColor(Job_type,exper)"
             >
               <span>{{ exper.name }}</span>
             </li>
           </ul>
         </div>
-        <!-- 以下为“更多”栏，使用elementplus，每一个选项添加了点击事件，但点击事件仅仅只是alert -->
+        <!-- 以下为“更多”栏 -->
         <div class="row-box">
           <div class="row-title">更多</div>
           <div class="select-container">
-            <el-dropdown class="dropdown">
-              <el-button class="select-button">
-                学历要求<el-icon class="el-icon--right">
-                  <arrow-down />
-                </el-icon>
-              </el-button>
-              <template #dropdown>
-                <el-dropdown-menu>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    不限
-                  </el-dropdown-item>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    本科
-                  </el-dropdown-item>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    硕士
-                  </el-dropdown-item>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    博士
-                  </el-dropdown-item>
-                </el-dropdown-menu>
-              </template>
-            </el-dropdown>
+            <el-select
+              v-model="value1"
+              clearable
+              value-key="id"
+              placeholder="学历要求"
+              style="width: 100px"
+            >
+              <el-option
+                v-for="item in options1"
+                :key="item.id"
+                :label="item.label"
+                :value="item"
+              />
+            </el-select>
 
-            <el-dropdown>
-              <el-button class="select-button">
-                工作经验<el-icon class="el-icon--right">
-                  <arrow-down />
-                </el-icon>
-              </el-button>
-              <template #dropdown>
-                <el-dropdown-menu>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    不限
-                  </el-dropdown-item>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    1年
-                  </el-dropdown-item>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    2年
-                  </el-dropdown-item>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    3年
-                  </el-dropdown-item>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    5年
-                  </el-dropdown-item>
-                </el-dropdown-menu>
-              </template>
-            </el-dropdown>
+            <el-select
+              v-model="value2"
+              clearable
+              value-key="id"
+              placeholder="工作经验"
+              style="width: 100px"
+            >
+              <el-option
+                v-for="item in options2"
+                :key="item.id"
+                :label="item.label"
+                :value="item"
+              />
+            </el-select>
 
-            <el-dropdown>
-              <el-button class="select-button">
-                单位性质<el-icon class="el-icon--right">
-                  <arrow-down />
-                </el-icon>
-              </el-button>
-              <template #dropdown>
-                <el-dropdown-menu>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    不限
-                  </el-dropdown-item>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    国企
-                  </el-dropdown-item>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    外企
-                  </el-dropdown-item>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    合资
-                  </el-dropdown-item>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    民营
-                  </el-dropdown-item>
-                </el-dropdown-menu>
-              </template>
-            </el-dropdown>
+            <el-select
+              v-model="value3"
+              clearable
+              value-key="id"
+              placeholder="单位性质"
+              style="width: 100px"
+            >
+              <el-option
+                v-for="item in options3"
+                :key="item.id"
+                :label="item.label"
+                :value="item"
+              />
+            </el-select>
 
-            <el-dropdown>
-              <el-button class="select-button">
-                单位规模<el-icon class="el-icon--right">
-                  <arrow-down />
-                </el-icon>
-              </el-button>
-              <template #dropdown>
-                <el-dropdown-menu>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    不限
-                  </el-dropdown-item>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    少于10人
-                  </el-dropdown-item>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    10-50人
-                  </el-dropdown-item>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    50-100人
-                  </el-dropdown-item>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    100人以上
-                  </el-dropdown-item>
-                </el-dropdown-menu>
-              </template>
-            </el-dropdown>
+            <el-select
+              v-model="value4"
+              clearable
+              value-key="id"
+              placeholder="单位规模"
+              style="width: 100px"
+            >
+              <el-option
+                v-for="item in options4"
+                :key="item.id"
+                :label="item.label"
+                :value="item"
+              />
+            </el-select>
 
-            <el-dropdown class="drop-form">
-              <el-button class="select-button">
-                更新时间<el-icon class="el-icon--right">
-                  <arrow-down />
-                </el-icon>
-              </el-button>
-              <template #dropdown>
-                <el-dropdown-menu>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    不限
-                  </el-dropdown-item>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    最近一周
-                  </el-dropdown-item>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    最近一个月
-                  </el-dropdown-item>
-                  <el-dropdown-item class="menu-item" @click="handleClick">
-                    最近三个月
-                  </el-dropdown-item>
-                </el-dropdown-menu>
-              </template>
-            </el-dropdown>
+            <el-select
+              v-model="value5"
+              clearable
+              value-key="id"
+              placeholder="更新时间"
+              style="width: 100px"
+            >
+              <el-option
+                v-for="item in options5"
+                :key="item.id"
+                :label="item.label"
+                :value="item"
+              />
+            </el-select> 
           </div>
-        </div>
-        
+        </div>   
       </div>
     </div>
-
     <Job />
     <Footer />
   </div>
@@ -203,8 +149,6 @@
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import Job from '@/components/Job.vue'
-import { ArrowDown } from '@element-plus/icons-vue'
-
 import { ref } from 'vue'
 // 筛选框的内容
 const Countrys = ref([
@@ -231,6 +175,7 @@ const Countrys = ref([
   { name: '其他', active: false },
 ])
 const Salaries = ref([
+  { name: '不限', active: false },
   { name: '3K以下', active: false },
   { name: '3K-5K', active: false },
   { name: '5K-10K', active: false },
@@ -240,6 +185,7 @@ const Salaries = ref([
   { name: '60K以上', active: false },
 ])
 const Job_type = ref([
+  { name: '不限', active: false },
   { name: '教育培训', active: false },
   { name: '广告/传媒/文化/体育', active: false },
   { name: '服务业', active: false },
@@ -256,25 +202,72 @@ const Job_type = ref([
   { name: '政府/非盈利机构', active: false },
   { name: '其他', active: false },
 ])
-function addActive(List: Array<{ name: string; active: boolean }>) {
+// 筛选框点击事件函数
+function changeColor(List: Array<{ name: string; active: boolean }>,item: { name: string; active: boolean }) {
   for (const item of List) {
     item.active = false
   }
-}
-
-function changeColor(item: { name: string; active: boolean }) {
   item.active = !item.active
 }
 
-addActive(Countrys.value)
-addActive(Salaries.value)
-addActive(Job_type.value)
-
 // 关于"更多"选择框
-const handleClick = () => {
-  // eslint-disable-next-line no-alert
-  alert('button click')
+type Option = {
+  id: number
+  label: string
+  desc: string
 }
+const value1 = ref<Option>()
+const options1 = ref([
+  { id: 1, label: '不限', desc: 'xueli1' },
+  { id: 2, label: '本科', desc: 'xueli2' },
+  { id: 3, label: '研究生', desc: 'xueli3' },
+  { id: 4, label: '博士', desc: 'xueli4' },
+])
+
+const value2 = ref<Option>()
+const options2 = ref([
+  { id: 1, label: '不限', desc: 'experience1' },
+  { id: 2, label: '在校生', desc: 'experience2' },
+  { id: 3, label: '应届生', desc: 'experience3' },
+  { id: 4, label: '1-3年', desc: 'experience4' },
+  { id: 5, label: '3-5年', desc: 'experience5' },
+  { id: 6, label: '5-10年', desc: 'experience6' },
+  { id: 7, label: '10年以上', desc: 'experience7' },
+])
+
+const value3 = ref<Option>()
+const options3 = ref([
+  { id: 1, label: '不限', desc: 'danwei1' },
+  { id: 2, label: '国企', desc: 'danwei2' },
+  { id: 3, label: '民营', desc: 'danwei3' },
+  { id: 4, label: '合资', desc: 'danwei4' },
+  { id: 5, label: '外企', desc: 'danwei5' },
+  { id: 6, label: '股份制企业', desc: 'danwei6' },
+  { id: 7, label: '上市公司', desc: 'danwei7' },
+  { id: 8, label: '事业单位', desc: 'danwei8' },
+  { id: 9, label: '其他', desc: 'danwei9' },
+])
+
+const value4 = ref<Option>()
+const options4 = ref([
+  { id: 1, label: '不限', desc: 'guimo1' },
+  { id: 2, label: '少于50人', desc: 'guimo2' },
+  { id: 3, label: '50-100人', desc: 'guimo3' },
+  { id: 4, label: '100-500人', desc: 'guimo4' },
+  { id: 5, label: '500-1000人', desc: 'guimo5' },
+  { id: 6, label: '1000-5000人', desc: 'guimo6' },
+  { id: 7, label: '5000-10000人', desc: 'guimo7' },
+  { id: 8, label: '10000人以上', desc: 'guimo8' },
+])
+
+const value5 = ref<Option>()
+const options5 = ref([
+  { id: 1, label: '不限', desc: 'time1' },
+  { id: 2, label: '3天内', desc: 'time2' },
+  { id: 3, label: '7天内', desc: 'time3' },
+  { id: 4, label: '15天内', desc: 'time4' },
+  { id: 5, label: '30天内', desc: 'time4' },
+])
 </script>
 
 <style lang="less" scoped>
@@ -342,32 +335,33 @@ const handleClick = () => {
 }
 // 筛选框样式
 .select-box {
-  width: 80%;
+  width: 72%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   background-color: #ffffff;
   padding: 25px;
-  margin: 10px;
+  // margin: 10px;
+  margin: 30px auto 0;
   border-radius: 23px;
 }
 .row-box {
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  align-items: center;
+
   ul {
     list-style: none;
     .activeColor {
-      background-color: #f6fbff;
       color: #ff4d4f;
       font-weight: bold;
+      padding: 0 5px;
     }
     li {
       display: inline-block;
       line-height: 28px;
       cursor: pointer;
-      margin-left: 20px;
+      margin-left: 19px;
     }
   }
 }
@@ -376,30 +370,35 @@ const handleClick = () => {
   color: #000;
   margin-left: 10px;
   white-space: nowrap;
+  margin-top: 20px;
 }
 .select-container {
   display: flex;
   justify-content: flex-start;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   margin: 10px 55px;
 }
 </style>
 
 <style lang="less">
-.select-button {
-  background-color: #fff;
-  margin-right: 20px;
-  border: 0.5px solid #000;
-  color: #000;
+.el-select{
+  --el-color-primary: #ff4d4f;
+  margin-top: 3px;
+  margin-right: 15px;
 }
-.select-button:focus {
-  background-color: #fef0f0;
+.el-select-placeholder {
   color: #ff4d4f;
-  border-color: #ff4d4f;
-  outline-style: none;
 }
-.menu-item:hover {
-  color: #ff4d4f !important;
-  font-weight: bold;
+//修改总体选项的样式 最外层
+.el-select-dropdown{
+  border:0px;
+  --el-color-primary: #ff4d4f;
+}
+.el-select-dropdown__item:hover{
+  color: #ff4d4f;
+  background: rgba(102, 102, 102, 0.3);
+}
+.el-select__selected-item span {
+  color: rgba(0, 0, 0, 0.8) !important;
 }
 </style>
