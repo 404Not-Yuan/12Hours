@@ -27,6 +27,7 @@
     "@bassist/progress": "^0.2.2",
     "@bassist/utils": "^0.13.0",
     "axios": "^1.6.7",
+    "element-china-area-data": "^6.1.0",
     "element-plus": "^2.5.5",
     "normalize.css": "^8.0.1",
     "pinia": "^2.1.6",

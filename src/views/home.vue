@@ -349,6 +349,7 @@ const options5 = ref([
   display: flex;
   justify-content: flex-start;
   width: 100%;
+  margin-bottom: 25px;
 
   ul {
     list-style: none;
@@ -366,37 +367,28 @@ const options5 = ref([
   }
 }
 .row-title {
+  display: inline-block;
   font-weight: bold;
   color: #000;
   margin-left: 10px;
   white-space: nowrap;
-  margin-top: 20px;
+  line-height: 28px;
 }
 .select-container {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  margin: 10px 55px;
+  margin: auto 55px;
 }
 </style>
 
 <style lang="less">
 .el-select{
-  --el-color-primary: #ff4d4f;
   margin-top: 3px;
   margin-right: 15px;
 }
 .el-select-placeholder {
   color: #ff4d4f;
-}
-//修改总体选项的样式 最外层
-.el-select-dropdown{
-  border:0px;
-  --el-color-primary: #ff4d4f;
-}
-.el-select-dropdown__item:hover{
-  color: #ff4d4f;
-  background: rgba(102, 102, 102, 0.3);
 }
 .el-select__selected-item span {
   color: rgba(0, 0, 0, 0.8) !important;

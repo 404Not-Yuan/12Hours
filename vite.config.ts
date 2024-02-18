@@ -99,6 +99,13 @@ export default defineConfig(({ mode }) => {
         sass: {
           additionalData: '@use "@/styles/element.scss" as *'
         }
+      },
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+          @use "@/styles/element.scss" as *;
+          `
+        }
       }
       /**
        * 包括 `vw` / `rem` 单位转换等
