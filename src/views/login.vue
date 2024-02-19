@@ -25,11 +25,24 @@
         <div class="tab-pane">
           <div data-prop="phone" class="form-item">
             <img src="@/assets/img/phone.png" class="icon_phone" />
-            <input name="phone" type="text" placeholder="请输入手机号码1" />
+            <el-form ref="formRef1" :model="phoneValidateForm1" class="demo-ruleForm">
+              <el-form-item prop="phone" :rules="[
+                { required: true, message: '请输入手机号' },
+                { pattern: /^1[3-9]\d{9}$/, message: '手机号格式不正确，必须是11位数字且以1开头' },
+              ]">
+                <el-input v-model.number="phoneValidateForm1.phone" type="tel" placeholder="请输入手机号1" autocomplete="off" size="large"/>
+              </el-form-item>
+            </el-form>
           </div>
           <div data-prop="code" class="form-item">
             <img src="@/assets/img/password.png" class="icon_phone" />
-            <input name="code" type="text" placeholder="请输入密码" />
+            <el-input
+              v-model="password1"
+              type="password"
+              placeholder="请输入密码1"
+              show-password
+              size="large"
+            />
           </div>
           <div class="form-item pl50">
             <img
@@ -53,12 +66,25 @@
         <div class="tab-pane">
           <div data-prop="phone" class="form-item">
             <img src="@/assets/img/phone.png" class="icon_phone" />
-            <input name="phone" type="text" placeholder="请输入手机号码2" />
+            <el-form ref="formRef2" :model="phoneValidateForm2" class="demo-ruleForm">
+              <el-form-item prop="phone" :rules="[
+                { required: true, message: '请输入手机号' },
+                { pattern: /^1[3-9]\d{9}$/, message: '手机号格式不正确，必须是11位数字且以1开头' },
+              ]">
+                <el-input v-model.number="phoneValidateForm2.phone" type="tel" placeholder="请输入手机号2" autocomplete="off" size="large"/>
+              </el-form-item>
+            </el-form>
           </div>
 
           <div data-prop="code" class="form-item">
             <img src="@/assets/img/password.png" class="icon_phone" />
-            <input name="code" type="text" placeholder="请输入密码" />
+            <el-input
+              v-model="password2"
+              type="password"
+              placeholder="请输入密码2"
+              show-password
+              size="large"
+            />
           </div>
           <div class="form-item pl50">
             <img
@@ -82,12 +108,25 @@
         <div class="tab-pane">
           <div data-prop="phone" class="form-item">
             <img src="@/assets/img/phone.png" class="icon_phone" />
-            <input name="phone" type="text" placeholder="请输入手机号码3" />
+            <el-form ref="formRef3" :model="phoneValidateForm3" class="demo-ruleForm">
+              <el-form-item prop="phone" :rules="[
+                { required: true, message: '请输入手机号' },
+                { pattern: /^1[3-9]\d{9}$/, message: '手机号格式不正确，必须是11位数字且以1开头' },
+              ]">
+                <el-input v-model.number="phoneValidateForm1.phone" type="tel" placeholder="请输入手机号3" autocomplete="off" size="large"/>
+              </el-form-item>
+            </el-form>
           </div>
 
           <div data-prop="code" class="form-item">
             <img src="@/assets/img/password.png" class="icon_phone" />
-            <input name="code" type="text" placeholder="请输入密码" />
+            <el-input
+              v-model="password3"
+              type="password"
+              placeholder="请输入密码3"
+              show-password
+              size="large"
+            />
           </div>
           <div class="form-item pl50">
             <img
@@ -113,9 +152,33 @@
 
 <script lang="ts">
 //省略类型声明
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
+import type { FormInstance } from 'element-plus'
 export default defineComponent({
   setup() {
+    //// 手机号相关
+    const formRef1 = ref<FormInstance>()
+
+    const phoneValidateForm1 = reactive({
+      phone: '',
+    })
+
+    const formRef2 = ref<FormInstance>()
+
+    const phoneValidateForm2 = reactive({
+      phone: '',
+    })
+
+    const formRef3 = ref<FormInstance>()
+
+    const phoneValidateForm3 = reactive({
+      phone: '',
+    })
+
+    // 密码相关
+    const password1 = ref('')
+    const password2 = ref('')
+    const password3 = ref('')
     //判断是否同意协议
     let isChecked = ref(false)
     function check() {
@@ -132,6 +195,9 @@ export default defineComponent({
       check,
       customer,
       showTab,
+      formRef1,formRef2,formRef3,
+      phoneValidateForm1,phoneValidateForm2,phoneValidateForm3,
+      password1,password2,password3,
     }
   },
 })
@@ -232,30 +298,6 @@ button:hover {
   color: #ff4d4f;
   font-size: 14px;
 }
-.form-item input {
-  width: 100%;
-  height: 50px;
-  padding-left: 15px;
-  background-color: transparent;
-}
-.form-item input[type='text'] {
-  border: none;
-}
-.form-item input[type='text']::placeholder {
-  color: #ff4d4f;
-}
-.form-item.error input {
-  border-color: #ff4d4f;
-}
-.form-item .code {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 200px;
-  color: #ff4d4f;
-  text-align: center;
-  text-decoration: none;
-}
 .register {
   display: flex;
   justify-content: flex-end;
@@ -273,4 +315,17 @@ button:hover {
 input[type='text']:focus {
   outline: none;
 }
+</style>
+
+<style lang="less">
+.el-input__inner {
+  border: none !important;
+}
+.el-form-item {
+  margin: 0;
+}
+.el-form {
+  width: 100%;
+}
+
 </style>

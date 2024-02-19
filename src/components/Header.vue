@@ -9,13 +9,15 @@
       </router-link>
 
     </div>
-    <router-link to="/login">
-      <div class="right">
+    <div class="right">
+      <router-link to="/login">
         <span class="login">登录</span>
+      </router-link>
         <span class="delimiter">|</span>
+      <router-link to="/register">
         <span class="register">注册</span>
-      </div>
-    </router-link>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -52,6 +54,12 @@
     cursor: pointer;
     margin-left: 10px;
     margin-right: 100px;
+  }
+  .login {
+    color: #fff;
+  }
+  .register {
+    color: #fff;
   }
   .delimiter {
     margin-right: 6px;
