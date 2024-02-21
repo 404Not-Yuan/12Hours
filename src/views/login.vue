@@ -58,7 +58,9 @@
           </div>
           <button type="submit" class="submit"><b>登录</b></button>
           <div class="register">
-            还没有账号？<a href="#"><i>去注册</i></a>
+            还没有账号？<a href="#"><i @click="$router.push({
+            name:'register'
+          })">去注册</i></a>
           </div>
         </div>
       </div>
@@ -100,7 +102,9 @@
           </div>
           <button type="submit" class="submit"><b>登录</b></button>
           <div class="register">
-            还没有账号？<a href="#"><i>去注册</i></a>
+            还没有账号？<a href="#"><i @click="$router.push({
+            name:'register'
+          })">去注册</i></a>
           </div>
         </div>
       </div>
@@ -113,7 +117,7 @@
                 { required: true, message: '请输入手机号' },
                 { pattern: /^1[3-9]\d{9}$/, message: '手机号格式不正确，必须是11位数字且以1开头' },
               ]">
-                <el-input v-model.number="phoneValidateForm1.phone" type="tel" placeholder="请输入手机号3" autocomplete="off" size="large"/>
+                <el-input v-model.number="phoneValidateForm3.phone" type="tel" placeholder="请输入手机号3" autocomplete="off" size="large"/>
               </el-form-item>
             </el-form>
           </div>
@@ -142,7 +146,9 @@
           </div>
           <button type="submit" class="submit"><b>登录</b></button>
           <div class="register">
-            还没有账号？<a href="#"><i>去注册</i></a>
+            还没有账号？<a href="#"><i @click="$router.push({
+            name:'register'
+          })">去注册</i></a>
           </div>
         </div>
       </div>
@@ -183,7 +189,7 @@ export default defineComponent({
     let isChecked = ref(false)
     function check() {
       isChecked.value = !isChecked.value
-      
+
     }
     //用户登录切换
     const customer = ref<number>(1)

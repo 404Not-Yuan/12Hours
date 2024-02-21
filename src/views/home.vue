@@ -135,9 +135,9 @@
                 :label="item.label"
                 :value="item"
               />
-            </el-select> 
+            </el-select>
           </div>
-        </div>   
+        </div>
       </div>
     </div>
     <Job />

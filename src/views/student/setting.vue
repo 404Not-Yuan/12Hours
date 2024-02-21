@@ -77,6 +77,13 @@
           </el-select>
           </div>
         </div> -->
+        <!-- 学号 -->
+        <div class="form-information">
+          <span>学号</span>
+          <div class="form-item">
+            <el-input v-model="stunumber" placeholder="请输入您的学号" clearable />
+          </div>
+        </div>
         <!-- 所在院系 -->
         <div class="form-information">
           <span>所在院系：</span>
@@ -191,6 +198,7 @@ export default defineComponent({
     const value1 = ref('')
     const input3 = ref('')
     const input4 = ref('')
+    const stunumber=ref('')
 
     // 以下注释掉的内容为 学校 相关
     // interface ListItem {
@@ -277,8 +285,8 @@ export default defineComponent({
 
     return {
       beforeAvatarUpload, handleAvatarSuccess, imageUrl, input1, input2, radio, value1, input3, input4, graduatevalue,
-      graduateOptions, addressvalue, addressOptions, handleChange, formRef1, dynamicValidateForm, formRef, 
-      phoneValidateForm,
+      graduateOptions, addressvalue, addressOptions, handleChange, formRef1, dynamicValidateForm, formRef,
+      phoneValidateForm,stunumber
     }
   },
 })

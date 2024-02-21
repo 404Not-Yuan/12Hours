@@ -48,10 +48,10 @@
             <div data-prop="code" class="form-item">
               <img src="@/assets/img/password.png" class="icon_phone" />
               <el-form-item prop="pass">
-                <el-input 
-                  v-model="ruleForm1.pass" 
-                  type="password" 
-                  autocomplete="off" 
+                <el-input
+                  v-model="ruleForm1.pass"
+                  type="password"
+                  autocomplete="off"
                   size="large"
                   placeholder="请输入密码" />
               </el-form-item>
@@ -81,7 +81,9 @@
             />
             已阅读并同意<i>《用户服务协议》</i>
           </div>
-          <button type="submit" class="submit">注册</button>
+          <button type="submit" class="submit" @click="$router.push({
+            name:'login'
+          })">注册</button>
         </div>
       </div>
       <div v-show="customer == 2" class="tab-content">
@@ -112,10 +114,10 @@
             <div data-prop="code" class="form-item">
               <img src="@/assets/img/password.png" class="icon_phone" />
               <el-form-item prop="pass">
-                <el-input 
-                  v-model="ruleForm2.pass" 
-                  type="password" 
-                  autocomplete="off" 
+                <el-input
+                  v-model="ruleForm2.pass"
+                  type="password"
+                  autocomplete="off"
                   size="large"
                   placeholder="请输入密码" />
               </el-form-item>
@@ -145,7 +147,9 @@
             />
             已阅读并同意<i>《用户服务协议》</i>
           </div>
-          <button type="submit" class="submit">注册</button>
+          <button type="submit" class="submit" @click="$router.push({
+            name:'login'
+          })">注册</button>
         </div>
       </div>
       <div v-show="customer == 3" class="tab-content">
@@ -176,10 +180,10 @@
             <div data-prop="code" class="form-item">
               <img src="@/assets/img/password.png" class="icon_phone" />
               <el-form-item prop="pass">
-                <el-input 
-                  v-model="ruleForm3.pass" 
-                  type="password" 
-                  autocomplete="off" 
+                <el-input
+                  v-model="ruleForm3.pass"
+                  type="password"
+                  autocomplete="off"
                   size="large"
                   placeholder="请输入密码" />
               </el-form-item>
@@ -209,7 +213,9 @@
             />
             已阅读并同意<i>《用户服务协议》</i>
           </div>
-          <button type="submit" class="submit">注册</button>
+          <button type="submit" class="submit" @click="$router.push({
+            name:'login'
+          })">注册</button>
         </div>
       </div>
     </div>

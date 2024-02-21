@@ -17,9 +17,6 @@ li {
 input {
   border: none;
 }
-input:focus-visible {
-  border: 2px solid #ff4d4f;
-}
 .ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
