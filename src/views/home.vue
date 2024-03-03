@@ -7,7 +7,7 @@
       <!-- 搜索栏 -->
       <div class="search-box">
         <div class="wrap-box">
-          <input name="search" type="text" placeholder="搜索职位、公司" />
+          <input v-model="searchDisplay" name="search" type="text" placeholder="搜索职位、公司" />
           <button type="submit" class="search-button">搜索</button>
         </div>
       </div>
@@ -23,7 +23,7 @@
                 v-for="(country, index) in Countrys"
                 :key="index"
                 :class="{ activeColor: country.active }"
-                @click="changeColor(Countrys,country)"
+                @click="selectCountry(country)"
               >
                 <span>{{ country.name }}</span>
               </li>
@@ -38,7 +38,7 @@
               v-for="(salary, index) in Salaries"
               :key="index"
               :class="{ activeColor: salary.active }"
-              @click="changeColor(Salaries,salary)"
+              @click="selectSalary(salary)"
             >
               <span>{{ salary.name }}</span>
             </li>
@@ -52,7 +52,7 @@
               v-for="(exper, index) in Job_type"
               :key="index"
               :class="{ activeColor: exper.active }"
-              @click="changeColor(Job_type,exper)"
+              @click="selectJob_type(exper)"
             >
               <span>{{ exper.name }}</span>
             </li>
@@ -149,7 +149,7 @@
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import Job from '@/components/Job.vue'
-import { ref } from 'vue'
+import { ref,computed } from 'vue'
 // 筛选框的内容
 const Countrys = ref([
   { name: '全国', active: false },
@@ -202,13 +202,52 @@ const Job_type = ref([
   { name: '政府/非盈利机构', active: false },
   { name: '其他', active: false },
 ])
-// 筛选框点击事件函数
-function changeColor(List: Array<{ name: string; active: boolean }>,item: { name: string; active: boolean }) {
-  for (const item of List) {
-    item.active = false
-  }
-  item.active = !item.active
-}
+
+const searchDisplay = ref('');  
+  
+const activeCountrys = computed(() => {  
+  return Countrys.value.filter(country => country.active);  
+});   
+
+const activeSalaries = computed(() => {  
+    return Salaries.value.filter(salary => salary.active);  
+});    
+
+const activeJob_type = computed(() => {  
+  return Job_type.value.filter(exper => exper.active);  
+});  
+
+// 当选择城市时，取消其他所有城市的激活状态  
+function selectCountry(selectedCountry) {  
+  Countrys.value.forEach(country => {  
+    country.active = country === selectedCountry;  
+  });  
+  updateSearchDisplay();  
+}  
+
+// 选择薪资时，取消其他所有薪资的激活状态  
+function selectSalary(selectedSalary) {  
+  Salaries.value.forEach(salary => {  
+    salary.active = salary === selectedSalary;  
+  });  
+  updateSearchDisplay();  
+}  
+
+// 选择类型时，取消其他所有薪资的激活状态  
+function selectJob_type(selectedJob_type) {  
+  Job_type.value.forEach(exper => {  
+    exper.active = exper === selectedJob_type;  
+  });  
+  updateSearchDisplay();  
+} 
+
+// 更新搜索框显示内容的函数  
+function updateSearchDisplay() {  
+  const activeCities = activeCountrys.value.map(city => city.name);  
+  const activesalaries = activeSalaries.value.map(salary => salary.name); 
+  const activeexper = activeJob_type.value.map(exper => exper.name);  
+  searchDisplay.value = [...activeCities, ...activesalaries, ...activeexper].join(', ');  
+}  
 
 // 关于"更多"选择框
 type Option = {
