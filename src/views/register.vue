@@ -27,17 +27,7 @@
             <img src="@/assets/img/user.png" class="icon_phone" />
             <el-input v-model="nameinput1" placeholder="请输入用户名" size="large"/>
           </div>
-          <div data-prop="phone" class="form-item">
-            <img src="@/assets/img/phone.png" class="icon_phone" />
-            <el-form ref="formRef1" :model="phoneValidateForm1" class="demo-ruleForm">
-              <el-form-item prop="phone" :rules="[
-                { required: true, message: '请输入手机号' },
-                { pattern: /^1[3-9]\d{9}$/, message: '手机号格式不正确，必须是11位数字且以1开头' },
-              ]">
-                <el-input v-model.number="phoneValidateForm1.phone" type="tel" placeholder="请输入手机号1" autocomplete="off" size="large"/>
-              </el-form-item>
-            </el-form>
-          </div>
+
           <el-form
             ref="ruleFormRef1"
             :model="ruleForm1"
@@ -81,9 +71,7 @@
             />
             已阅读并同意<i>《用户服务协议》</i>
           </div>
-          <button type="submit" class="submit" @click="$router.push({
-            name:'login'
-          })">注册</button>
+          <button type="submit" class="submit" @click="register(1)">注册</button>
         </div>
       </div>
       <div v-show="customer == 2" class="tab-content">
@@ -92,17 +80,7 @@
             <img src="@/assets/img/user.png" class="icon_phone" />
             <el-input v-model="nameinput2" placeholder="请输入用户名" size="large"/>
           </div>
-          <div data-prop="phone" class="form-item">
-            <img src="@/assets/img/phone.png" class="icon_phone" />
-            <el-form ref="formRef2" :model="phoneValidateForm2" class="demo-ruleForm">
-              <el-form-item prop="phone" :rules="[
-                { required: true, message: '请输入手机号' },
-                { pattern: /^1[3-9]\d{9}$/, message: '手机号格式不正确，必须是11位数字且以1开头' },
-              ]">
-                <el-input v-model.number="phoneValidateForm2.phone" type="tel" placeholder="请输入手机号2" autocomplete="off" size="large"/>
-              </el-form-item>
-            </el-form>
-          </div>
+
 
           <el-form
             ref="ruleFormRef2"
@@ -147,9 +125,7 @@
             />
             已阅读并同意<i>《用户服务协议》</i>
           </div>
-          <button type="submit" class="submit" @click="$router.push({
-            name:'login'
-          })">注册</button>
+          <button type="submit" class="submit"  @click="register(2)">注册</button>
         </div>
       </div>
       <div v-show="customer == 3" class="tab-content">
@@ -158,17 +134,7 @@
             <img src="@/assets/img/user.png" class="icon_phone" />
             <el-input v-model="nameinput3" placeholder="请输入用户名" size="large"/>
           </div>
-          <div data-prop="phone" class="form-item">
-            <img src="@/assets/img/phone.png" class="icon_phone" />
-            <el-form ref="formRef3" :model="phoneValidateForm3" class="demo-ruleForm">
-              <el-form-item prop="phone" :rules="[
-                { required: true, message: '请输入手机号' },
-                { pattern: /^1[3-9]\d{9}$/, message: '手机号格式不正确，必须是11位数字且以1开头' },
-              ]">
-                <el-input v-model.number="phoneValidateForm3.phone" type="tel" placeholder="请输入手机号3" autocomplete="off" size="large"/>
-              </el-form-item>
-            </el-form>
-          </div>
+
 
           <el-form
             ref="ruleFormRef3"
@@ -213,9 +179,7 @@
             />
             已阅读并同意<i>《用户服务协议》</i>
           </div>
-          <button type="submit" class="submit" @click="$router.push({
-            name:'login'
-          })">注册</button>
+          <button type="submit" class="submit"  @click="register(3)">注册</button>
         </div>
       </div>
     </div>
@@ -226,8 +190,12 @@
 //省略类型声明
 import { defineComponent, ref, reactive } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
+import http from '@/services/request'
+import { useRouter } from 'vue-router'
 export default defineComponent({
   setup() {
+
+    const router = useRouter()
     // 用户名输入框
     const nameinput1 = ref('')
     const nameinput2 = ref('')
@@ -348,6 +316,57 @@ export default defineComponent({
     function showTab(index: number) {
       customer.value = index
     }
+
+    //学生注册
+    function register(index){
+      if(index==1){
+        http.post('/stu/register', {
+          username:nameinput1.value,
+          password:ruleForm1.pass
+        }).then(response => {
+         
+          if(response.code==200){
+              router.push({
+              path:'/login'
+            })
+          }
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      }else if(index==2){
+        http.post('/school/register', {
+          username:nameinput2.value,
+          password:ruleForm2.pass
+        }).then(response => {
+
+          if(response.code==200){
+              router.push({
+              path:'/login'
+            })
+          }
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      }else{
+
+        http.post('/manager/register', {
+          username:nameinput3.value,
+          password:ruleForm3.pass
+        }).then(response => {
+
+          if(response.code==200){
+              router.push({
+              path:'/login'
+            })
+          }
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      }
+    }
     return {
       isChecked,
       check,
@@ -359,6 +378,7 @@ export default defineComponent({
       validatePass1,ruleFormRef1,validatePass12,ruleForm1,rules1,
       validatePass2,ruleFormRef2,validatePass22,ruleForm2,rules2,
       validatePass3,ruleFormRef3,validatePass32,ruleForm3,rules3,
+      register
     }
   },
 })

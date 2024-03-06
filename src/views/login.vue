@@ -23,7 +23,7 @@
       </div>
       <div v-show="customer == 1" class="tab-content">
         <div class="tab-pane">
-          <div data-prop="phone" class="form-item">
+          <!-- <div data-prop="phone" class="form-item">
             <img src="@/assets/img/phone.png" class="icon_phone" />
             <el-form ref="formRef1" :model="phoneValidateForm1" class="demo-ruleForm">
               <el-form-item prop="phone" :rules="[
@@ -33,6 +33,10 @@
                 <el-input v-model.number="phoneValidateForm1.phone" type="tel" placeholder="请输入手机号1" autocomplete="off" size="large"/>
               </el-form-item>
             </el-form>
+          </div> -->
+          <div data-prop="username" class="form-item">
+            <img src="@/assets/img/user.png" class="icon_phone" />
+            <el-input v-model="nameinput1" placeholder="请输入用户名" size="large"/>
           </div>
           <div data-prop="code" class="form-item">
             <img src="@/assets/img/password.png" class="icon_phone" />
@@ -56,7 +60,7 @@
             />
             已阅读并同意<i>《用户服务协议》</i>
           </div>
-          <button type="submit" class="submit"><b>登录</b></button>
+          <button type="submit" class="submit" @click="login(1)"><b>登录</b></button>
           <div class="register">
             还没有账号？<a href="#"><i @click="$router.push({
             name:'register'
@@ -66,7 +70,7 @@
       </div>
       <div v-show="customer == 2" class="tab-content">
         <div class="tab-pane">
-          <div data-prop="phone" class="form-item">
+          <!-- <div data-prop="phone" class="form-item">
             <img src="@/assets/img/phone.png" class="icon_phone" />
             <el-form ref="formRef2" :model="phoneValidateForm2" class="demo-ruleForm">
               <el-form-item prop="phone" :rules="[
@@ -76,8 +80,11 @@
                 <el-input v-model.number="phoneValidateForm2.phone" type="tel" placeholder="请输入手机号2" autocomplete="off" size="large"/>
               </el-form-item>
             </el-form>
+          </div> -->
+          <div data-prop="username" class="form-item">
+            <img src="@/assets/img/user.png" class="icon_phone" />
+            <el-input v-model="nameinput2" placeholder="请输入用户名" size="large"/>
           </div>
-
           <div data-prop="code" class="form-item">
             <img src="@/assets/img/password.png" class="icon_phone" />
             <el-input
@@ -100,7 +107,7 @@
             />
             已阅读并同意<i>《用户服务协议》</i>
           </div>
-          <button type="submit" class="submit"><b>登录</b></button>
+          <button type="submit" class="submit" @click="login(2)"><b>登录</b></button>
           <div class="register">
             还没有账号？<a href="#"><i @click="$router.push({
             name:'register'
@@ -110,7 +117,7 @@
       </div>
       <div v-show="customer == 3" class="tab-content">
         <div class="tab-pane">
-          <div data-prop="phone" class="form-item">
+          <!-- <div data-prop="phone" class="form-item">
             <img src="@/assets/img/phone.png" class="icon_phone" />
             <el-form ref="formRef3" :model="phoneValidateForm3" class="demo-ruleForm">
               <el-form-item prop="phone" :rules="[
@@ -120,8 +127,11 @@
                 <el-input v-model.number="phoneValidateForm3.phone" type="tel" placeholder="请输入手机号3" autocomplete="off" size="large"/>
               </el-form-item>
             </el-form>
+          </div> -->
+          <div data-prop="username" class="form-item">
+            <img src="@/assets/img/user.png" class="icon_phone" />
+            <el-input v-model="nameinput3" placeholder="请输入用户名" size="large"/>
           </div>
-
           <div data-prop="code" class="form-item">
             <img src="@/assets/img/password.png" class="icon_phone" />
             <el-input
@@ -144,7 +154,7 @@
             />
             已阅读并同意<i>《用户服务协议》</i>
           </div>
-          <button type="submit" class="submit"><b>登录</b></button>
+          <button type="submit" class="submit" @click="login(3)"><b>登录</b></button>
           <div class="register">
             还没有账号？<a href="#"><i @click="$router.push({
             name:'register'
@@ -158,10 +168,23 @@
 
 <script lang="ts">
 //省略类型声明
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref ,onMounted} from 'vue'
 import type { FormInstance } from 'element-plus'
+import http from '@/services/request'
+import { hkdfSync } from 'crypto'
+import { useRouter } from 'vue-router'
 export default defineComponent({
   setup() {
+    onMounted(()=>{
+      localStorage.clear()
+      const token = localStorage.getItem('token');
+      console.log(token,111)
+    })
+    const router = useRouter()
+    // 用户名输入框
+    const nameinput1 = ref('')
+    const nameinput2 = ref('')
+    const nameinput3 = ref('')
     //// 手机号相关
     const formRef1 = ref<FormInstance>()
 
@@ -196,14 +219,74 @@ export default defineComponent({
     function showTab(index: number) {
       customer.value = index
     }
+
+    //学生登录
+    function login(index){
+      if(index==1){
+        http.post('/stu/login', {
+          username:nameinput1.value,
+          password:password1.value
+        }).then(response => {
+          if(response.code==200){
+            router.push({
+              path:'/'
+            })
+          let stutoken = response.token;
+            console.log(stutoken,666)
+          localStorage.setItem("token",stutoken);
+          }
+
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      }else if(index==2){
+        http.post('/school/login', {
+          username:nameinput2.value,
+          password:password2.value
+        }).then(response => {
+          if(response.code==200){
+            router.push({
+              path:'/school/administration'
+            })
+          let schtoken = response.token;
+
+          localStorage.setItem("token",schtoken);
+          }
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      }else{
+        console.log(nameinput3)
+        http.post('/manager/login', {
+          username:nameinput3.value,
+          password:password3.value
+        }).then(response => {
+          if(response.code==200){
+            router.push({
+              path:'/admin/administration'
+            })
+          let admtoken = response.token;
+
+          localStorage.setItem("token",admtoken);
+          }
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      }
+    }
     return {
       isChecked,
       check,
       customer,
       showTab,
+      nameinput1,nameinput2,nameinput3,
       formRef1,formRef2,formRef3,
       phoneValidateForm1,phoneValidateForm2,phoneValidateForm3,
       password1,password2,password3,
+      login
     }
   },
 })

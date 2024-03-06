@@ -143,12 +143,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref,onMounted } from 'vue'
 //引入路由API
 import { useRouter } from 'vue-router'
-
+import http from '@/services/request'
 export default defineComponent({
   setup() {
+    onMounted(()=>{
+      hotjob()
+      const token = localStorage.getItem('token');
+      console.log(token,222)
+    })
     //区别热门职位还是最新职位
     //创建响应式API，使变量具备响应式
     const nowIndex = ref<number>(0)
@@ -163,13 +168,20 @@ export default defineComponent({
         name: 'jobdetail',
       })
     }
+    function hotjob(){
+      http.get('/job/hotjob').then(res=>{
+        console.log(res)
+      })
+    }
     //将需要在模板里面使用的变量return出去
     return {
       nowIndex,
       changeTab,
       jobdetail,
     }
+
   },
+
 })
 </script>
 

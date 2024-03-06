@@ -12,7 +12,7 @@ interface Result {
 interface ResultData<T = any> extends Result {
   data?: T;
 }
-const URL: string = ''
+const URL: string = 'http://47.92.87.211:10015'
 enum RequestEnums {
   TIMEOUT = 20000,
   OVERDUE = 600, // 登录失效

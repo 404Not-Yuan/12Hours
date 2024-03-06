@@ -29,7 +29,7 @@
     >
       <template #default="scope">
         <el-tag
-          :type="scope.row.tag === '全职' ? '' : 'success'"
+          :type="scope.row.tag === '全职' ? 'primary' : 'success'"
           disable-transitions
           >{{ scope.row.tag }}</el-tag
         >
@@ -48,7 +48,7 @@
     >
       <template #default="scope">
         <el-tag
-          :type="scope.row.tagtype === '线上' ? '' : 'success'"
+          :type="scope.row.tagtype === '线上' ? 'primary' : 'success'"
           disable-transitions
           >{{ scope.row.tagtype }}</el-tag
         >
@@ -76,8 +76,6 @@
 </template>
 
 <script lang="ts" setup>
-import { Timer } from '@element-plus/icons-vue'
-
 interface User {
   name: string,
   stuname:string,
@@ -85,7 +83,6 @@ interface User {
   address: string,
   tag: string,
   tagtype:string,
-
 }
 
 const handleEdit = (index: number, row: User) => {
@@ -101,6 +98,38 @@ const filterTagType = (value: string, row: User) => {
   return row.tagtype === value
 }
 const tableData: User[] = [
+  {
+    stuname:'邬振远',
+    stunumber:21101218,
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+    tag: '全职',
+    tagtype:'线上'
+  },
+  {
+    stuname:'邬振远',
+    stunumber:21101218,
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+    tag: '全职',
+    tagtype:'线上'
+  },
+  {
+    stuname:'邬振远',
+    stunumber:21101218,
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+    tag: '全职',
+    tagtype:'线上'
+  },
+  {
+    stuname:'邬振远',
+    stunumber:21101218,
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+    tag: '兼职',
+    tagtype:'线上'
+  },
   {
     stuname:'邬振远',
     stunumber:21101218,
@@ -130,8 +159,16 @@ const tableData: User[] = [
     stunumber:21101218,
     name: 'Tom',
     address: 'No. 189, Grove St, Los Angeles',
+    tag: '兼职',
+    tagtype:'线上'
+  },
+  {
+    stuname:'邬振远',
+    stunumber:21101218,
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
     tag: '全职',
-    tagtype:'线下'
+    tagtype:'线上'
   },
   {
     stuname:'邬振远',
@@ -149,39 +186,7 @@ const tableData: User[] = [
     tag: '全职',
     tagtype:'线下'
   },
-  {
-    stuname:'邬振远',
-    stunumber:21101218,
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: '全职',
-    tagtype:'线下'
-  },
-  {
-    stuname:'邬振远',
-    stunumber:21101218,
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: '全职',
-    tagtype:'线下'
-  },
-  {
 
-    name: 'Tom',
-    stuname:'邬振远',
-    stunumber:21101218,
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: '全职',
-    tagtype:'线下'
-  },
-  {
-    stuname:'邬振远',
-    stunumber:21101218,
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: '全职',
-    tagtype:'线下'
-  },
 ]
 </script>
 <style lang="less" scoped>

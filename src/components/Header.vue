@@ -3,13 +3,12 @@
     <div class="left" />
     <div class="titleList">
       <div class="title">首页</div>
-      <div class="title">首页</div>
       <router-link to="/student/personal">
         <div class="title">个人中心</div>
       </router-link>
 
     </div>
-    <div class="right">
+    <div class="right" v-if="token==''">
       <router-link to="/login">
         <span class="login">登录</span>
       </router-link>
@@ -18,10 +17,17 @@
         <span class="register">注册</span>
       </router-link>
     </div>
+    <div class="right" v-else>
+      <router-link to="/login">
+        <span class="login">退出登录</span>
+      </router-link>
+    </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+ const token = localStorage.getItem('token');
+</script>
 
 <style lang="less" scoped>
 .header {

@@ -35,7 +35,7 @@
     >
       <template #default="scope">
         <el-tag
-          :type="scope.row.tag === '全职' ? '' : 'success'"
+          :type="scope.row.tag === '全职' ? 'primary' : 'success'"
           disable-transitions
           >{{ scope.row.tag }}</el-tag
         >
@@ -54,7 +54,7 @@
     >
       <template #default="scope">
         <el-tag
-          :type="scope.row.tagtype === '线上' ? '' : 'success'"
+          :type="scope.row.tagtype === '线上' ? 'primary' : 'success'"
           disable-transitions
           >{{ scope.row.tagtype }}</el-tag
         >
